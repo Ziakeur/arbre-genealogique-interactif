@@ -1,7 +1,8 @@
 <meta charset="utf-8">
-<title>Ascendance Aurélien VINCENT</title>
+<title>L’arbre de nos ancêtres — VINCENT · DUMAS de la ROQUE</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Ascendance documentée d'Aurélien VINCENT — cinq branches, quatorze générations. Les données des personnes vivantes ne sont pas publiées.">
+<meta name="description" content="Les ancêtres de la famille VINCENT et DUMAS de la ROQUE — cinq branches, quatorze générations. Les données des personnes vivantes ne sont pas publiées.">
+<meta name="author" content="Aurélien VINCENT">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
@@ -40,22 +41,23 @@
   }
   /* ---------- header ---------- */
   header{
-    position:relative; z-index:30; display:flex; align-items:center; gap:18px;
-    padding:10px 18px; background:var(--panel); border-bottom:1px solid var(--line);
+    position:relative; z-index:30; display:flex; align-items:center; gap:11px;
+    padding:6px 14px; background:var(--panel); border-bottom:1px solid var(--line);
     flex-wrap:wrap;
   }
+  .brand{ min-width:0; }
   .brand h1{
-    font-family:"EB Garamond",Georgia,serif; font-weight:600; font-size:21px;
-    margin:0; letter-spacing:.01em; text-wrap:balance;
+    font-family:"EB Garamond",Georgia,serif; font-weight:600; font-size:18px;
+    margin:0; letter-spacing:.01em; text-wrap:balance; line-height:1.15;
   }
-  .brand .sub{ font-size:12.5px; color:var(--ink2); margin-top:1px; }
-  .stats{ display:flex; gap:14px; font-size:12.5px; color:var(--ink2);
-    font-variant-numeric:tabular-nums; border-left:1px solid var(--line); padding-left:16px;}
+  .brand .sub{ font-size:11.5px; color:var(--ink2); margin-top:0; line-height:1.25; }
+  .stats{ display:flex; gap:10px; font-size:12.5px; color:var(--ink2); white-space:nowrap;
+    font-variant-numeric:tabular-nums; border-left:1px solid var(--line); padding-left:12px; margin-left:3px;}
   .stats b{ color:var(--ink); font-weight:700; }
-  .spacer{flex:1}
+  .spacer{ flex:1 1 0; min-width:0; }
   .searchbox{ position:relative; }
-  .searchbox input{
-    width:230px; padding:6px 10px; border:1px solid var(--line2); border-radius:6px;
+  .searchbox input{ padding-top:5px; padding-bottom:5px;
+    width:196px; padding:6px 10px; border:1px solid var(--line2); border-radius:6px;
     background:var(--card); color:var(--ink); font:inherit; font-size:13.5px;
   }
   .searchbox input::placeholder{color:var(--muted)}
@@ -71,19 +73,24 @@
   }
   #hits button:hover,#hits button:focus-visible{ background:var(--bg); outline:none; }
   #hits .hs{ color:var(--muted); font-variant-numeric:tabular-nums; margin-right:6px; }
-  .ctrls{ display:flex; gap:6px; }
+  .ctrls{ display:flex; gap:5px; flex-wrap:nowrap; }
   .ctrls button, .notesbtn{
     border:1px solid var(--line2); background:var(--card); color:var(--ink);
-    border-radius:6px; padding:6px 11px; font:inherit; font-size:13.5px; cursor:pointer;
+    border-radius:6px; padding:4px 9px; font:inherit; font-size:13px; cursor:pointer; white-space:nowrap;
   }
   .ctrls button:hover,.notesbtn:hover{ border-color:var(--accent-soft); }
   .ctrls button:focus-visible,.notesbtn:focus-visible{ outline:2px solid var(--accent); outline-offset:1px;}
   /* ---------- legend ---------- */
   .legend{
-    position:relative; z-index:25; display:flex; gap:14px; align-items:center; flex-wrap:wrap;
-    padding:7px 18px; background:var(--panel); border-bottom:1px solid var(--line);
+    position:relative; z-index:25; display:flex; gap:13px; align-items:center; flex-wrap:wrap;
+    padding:4px 18px; background:var(--panel); border-bottom:1px solid var(--line);
     font-size:12.5px; color:var(--ink2);
   }
+  /* la légende des niveaux de preuve se replie : elle ne sert qu'une fois */
+  .legend.lgdoff .lv-legend{ display:none; }
+  .lgdtog{ margin-left:auto; border:1px solid var(--line2); background:var(--card); color:var(--ink2);
+    border-radius:6px; padding:2px 9px; font:inherit; font-size:12px; cursor:pointer; white-space:nowrap; }
+  .lgdtog:hover{ border-color:var(--accent-soft); color:var(--ink); }
   .chip{ display:inline-flex; align-items:center; gap:6px; }
   .chip i{ width:11px; height:11px; border-radius:3px; display:inline-block; }
   .lv-legend{ display:inline-flex; gap:10px; align-items:center; border-left:1px solid var(--line);
@@ -110,32 +117,32 @@
   #world{ position:absolute; left:0; top:0; transform-origin:0 0; }
   #edges{ position:absolute; left:0; top:0; overflow:visible; }
   #genaxis{
-    position:absolute; top:0; left:0; right:0; height:78px; z-index:12;
+    position:absolute; top:0; left:0; right:0; height:62px; z-index:12;
     background:color-mix(in srgb, var(--panel) 94%, transparent);
     border-bottom:1px solid var(--line2); pointer-events:none; overflow:hidden;
   }
   .axl{
-    position:absolute; top:4px; text-align:center; white-space:nowrap; overflow:hidden;
-    border-left:1px dashed var(--line2); height:48px;
+    position:absolute; top:3px; text-align:center; white-space:nowrap; overflow:hidden;
+    border-left:1px dashed var(--line2); height:36px;
   }
   /* liseré des règnes et régimes — discret, sous les générations */
-  .era{ position:absolute; top:54px; height:19px; overflow:hidden; white-space:nowrap;
+  .era{ position:absolute; top:40px; height:18px; overflow:hidden; white-space:nowrap;
     border-left:1px solid color-mix(in srgb, var(--ink2) 35%, transparent);
     background:color-mix(in srgb, var(--ink) 4%, transparent); pointer-events:none; }
   .era.alt{ background:color-mix(in srgb, var(--ink) 9%, transparent); }
-  .era span{ display:block; font-family:"EB Garamond",Georgia,serif; font-size:13px; line-height:19px; padding:0 6px;
+  .era span{ display:block; font-family:"EB Garamond",Georgia,serif; font-size:12px; line-height:18px; padding:0 6px;
     color:var(--ink2); letter-spacing:.04em; font-style:italic; }
-  .war{ position:absolute; top:74px; height:3px; background:var(--br-d); opacity:.55; pointer-events:none; border-radius:1px; }
+  .war{ position:absolute; top:58px; height:3px; background:var(--br-d); opacity:.55; pointer-events:none; border-radius:1px; }
   .axl .ev{ display:none; }
   .axl .ev{ display:block; font-family:"Alegreya Sans",sans-serif; font-size:9.5px;
     letter-spacing:.05em; color:var(--accent-soft); font-style:italic; margin-top:1px; }
   .axl b{
-    display:block; font-family:"EB Garamond",Georgia,serif; font-weight:600; font-size:16px;
-    letter-spacing:.12em; color:var(--ink2);
+    display:block; font-family:"EB Garamond",Georgia,serif; font-weight:600; font-size:14px;
+    line-height:1.2; letter-spacing:.12em; color:var(--ink2);
   }
   .axl small{
-    display:block; font-family:"Alegreya Sans",sans-serif; font-size:12.5px;
-    letter-spacing:.04em; color:var(--muted); font-variant-numeric:tabular-nums;
+    display:block; font-family:"Alegreya Sans",sans-serif; font-size:11px;
+    line-height:1.25; letter-spacing:.04em; color:var(--muted); font-variant-numeric:tabular-nums;
   }
   /* ---------- cards ---------- */
   .pcard{
@@ -255,6 +262,15 @@
     margin:16px 0 5px; color:var(--accent); }
   #notes p,#notes li{ font-size:13.5px; line-height:1.5; color:var(--ink); }
   #notes ul{ padding-left:18px; margin:4px 0; }
+  #notes .thx{ border:1px solid var(--line2); border-left:3px solid var(--accent);
+    background:var(--card); border-radius:8px; padding:12px 14px; margin:12px 0 4px; }
+  #notes .thx h3{ margin-top:0; }
+  #notes .thx p{ margin:0 0 7px; }
+  #notes .thx p:last-child{ margin-bottom:0; }
+  #notes .thx ul{ list-style:none; padding-left:0; margin:6px 0 8px; }
+  #notes .thx li{ padding:2px 0 2px 14px; position:relative; }
+  #notes .thx li::before{ content:'·'; position:absolute; left:3px; color:var(--accent); font-weight:700; }
+  #notes .thx .who{ font-weight:700; }
   #notes .close{
     position:absolute; top:10px; right:10px; border:1px solid var(--line2); background:var(--card);
     color:var(--ink); border-radius:6px; width:28px; height:28px; cursor:pointer; font-size:14px;
@@ -269,8 +285,11 @@
     width:max-content; max-width:102px; text-align:center; white-space:normal;
     transform:translate(-50%,-50%); z-index:3;
     box-shadow:var(--shadow);
-    pointer-events:auto; cursor:default; font-variant-numeric:tabular-nums;
+    pointer-events:auto; cursor:pointer; font-variant-numeric:tabular-nums;
+    transition:border-color .12s, box-shadow .12s;
   }
+  .mar:hover{ border-color:var(--bc,var(--accent)); box-shadow:0 0 0 2px color-mix(in srgb, var(--bc,var(--accent)) 22%, transparent), var(--shadow); }
+  .mar:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
   .mar b{ display:block; color:var(--bc); font-weight:700; font-size:8px;
     letter-spacing:.11em; text-transform:uppercase; line-height:1.5; }
   .mar b .rgs{ width:14px; height:9px; vertical-align:-1px; margin-right:2px; }
@@ -542,7 +561,7 @@
     .legend{ padding:4px 8px; gap:10px; flex-wrap:nowrap; overflow-x:auto;
       -webkit-overflow-scrolling:touch; scrollbar-width:none; }
     .legend::-webkit-scrollbar{ display:none; }
-    #lgdBr, .lv-legend{ display:none; }
+    #lgdBr, .lv-legend, .lgdtog{ display:none; }
     .fbar{ border-left:none; padding-left:0; flex-wrap:nowrap; }
     .fbar label{ white-space:nowrap; }
     .fbar select{ font-size:12.5px; }
@@ -571,12 +590,110 @@
     background:color-mix(in srgb, var(--panel) 80%, transparent); padding:3px 9px; border-radius:6px;
     pointer-events:none;
   }
+  /* ---------- page d'accueil : on passe par là avant l'arbre ---------- */
+  #welcome{
+    position:fixed; inset:0; z-index:150; display:flex; align-items:center; justify-content:center;
+    padding:20px; background:color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter:blur(3px) saturate(.92); animation:wfade .3s ease both;
+  }
+  #welcome.gone{ display:none; }
+  .wcard{
+    position:relative; width:min(830px,100%); max-height:calc(100vh - 40px); overflow:auto;
+    background:var(--panel); border:1px solid var(--line2); border-radius:14px;
+    box-shadow:var(--shadow-lg); padding:30px 34px 22px;
+    animation:wrise .4s cubic-bezier(.2,.7,.3,1) both;
+  }
+  .wcard::before{ content:''; position:absolute; left:0; right:0; top:0; height:3px; border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,var(--br-d) 0%,var(--br-b) 27%,var(--br-m) 52%,var(--br-f) 76%,var(--br-v) 100%); }
+  .wcard h2{ font-family:"EB Garamond",Georgia,serif; font-weight:600; font-size:34px;
+    margin:4px 0 5px; letter-spacing:.01em; line-height:1.1; }
+  .wsub{ font-size:14.5px; color:var(--ink2); margin:0 0 18px; line-height:1.55; }
+  .wstats{ display:flex; flex-wrap:wrap; border:1px solid var(--line); border-radius:10px;
+    background:var(--card); margin-bottom:18px; overflow:hidden; }
+  .wstats div{ flex:1 1 96px; text-align:center; padding:9px 6px; border-left:1px solid var(--line); }
+  .wstats div:first-child{ border-left:none; }
+  .wstats b{ display:block; font-family:"EB Garamond",Georgia,serif; font-size:25px;
+    color:var(--accent); line-height:1.15; font-variant-numeric:tabular-nums; }
+  .wstats span{ font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
+  .wgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:20px; }
+  .wgrid h4{ font-family:"Alegreya Sans",sans-serif; font-size:11.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 5px; font-weight:700; }
+  .wgrid p{ font-size:14.5px; line-height:1.55; color:var(--ink); margin:0; }
+  .wfoot{ display:flex; flex-wrap:wrap; align-items:center; gap:9px 16px; }
+  .wgo{ background:var(--accent); color:var(--on-accent); border:none; border-radius:8px;
+    padding:12px 22px; font:inherit; font-size:16px; font-weight:700; cursor:pointer; }
+  .wgo:hover{ background:var(--accent-soft); }
+  .wgo:focus-visible,.wlink:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .wlink{ background:none; border:none; color:var(--ink2); font:inherit; font-size:14px;
+    cursor:pointer; text-decoration:underline; text-underline-offset:3px; padding:4px 0; }
+  .wlink:hover{ color:var(--accent); }
+  .wtip{ font-size:13px; color:var(--ink2); line-height:1.5; margin:15px 0 0;
+    padding:9px 12px; border-radius:8px; background:var(--card);
+    border:1px solid var(--line); border-left:3px solid var(--accent-soft); }
+  .wthx{ font-size:12.5px; color:var(--muted); line-height:1.6; margin:16px 0 0;
+    padding-top:12px; border-top:1px solid var(--line); }
+  @keyframes wfade{ from{opacity:0} to{opacity:1} }
+  @keyframes wrise{ from{opacity:0; transform:translateY(14px) scale(.985)} to{opacity:1; transform:none} }
+  @media (prefers-reduced-motion: reduce){ #welcome,.wcard{ animation:none } }
+  @media (max-width:700px){
+    #welcome{ padding:12px; }
+    .wcard{ padding:22px 18px 16px; border-radius:12px; }
+    .wcard h2{ font-size:27px; }
+    .wgrid{ grid-template-columns:1fr; gap:13px; margin-bottom:16px; }
+    .wstats div{ flex:1 1 44%; border-top:1px solid var(--line); }
+    .wstats div:nth-child(-n+2){ border-top:none; }
+    .wstats div:nth-child(odd){ border-left:none; }
+  }
 </style>
+
+<div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wtitle">
+  <div class="wcard">
+    <h2 id="wtitle">L’arbre de nos ancêtres</h2>
+    <p class="wsub">Cinq branches — DUMAS de la ROQUE, de BRINON, MORACHE, DELAFONT, VINCENT · HUISSOUD —
+    remontées dans les registres jusqu’au XVIᵉ siècle.<br>Réalisation : <b>Aurélien VINCENT</b></p>
+
+    <div class="wstats" id="wstats"></div>
+
+    <div class="wgrid">
+      <div>
+        <h4>Ce que c’est</h4>
+        <p>Nos ancêtres, retrouvés un par un dans les actes. <b>Aucune génération n’est rattachée à
+        la suivante sans un acte qui nomme les parents</b> : chaque fiche dit ce qui la fonde et
+        d’où ça vient.</p>
+      </div>
+      <div>
+        <h4>Où êtes-vous&nbsp;?</h4>
+        <p>Nulle part, et ce n’est pas un oubli : un arbre d’ascendance ne remonte que les ancêtres.
+        <b>Mais vous vous y rattachez</b> — cherchez un grand-père parmi les frères et sœurs, en
+        petites fiches.</p>
+      </div>
+      <div>
+        <h4>Comment s’en servir</h4>
+        <p>Glissez pour vous déplacer, zoomez à la molette, <b>cliquez une personne</b> pour tout
+        savoir d’elle. Et si vous préférez qu’on vous guide, la visite est là pour ça.</p>
+      </div>
+    </div>
+
+    <div class="wfoot">
+      <button class="wgo" id="wgo">Entrer dans l’arbre &nbsp;→</button>
+      <button class="wlink" id="wtour">✦ Commencer par la visite guidée</button>
+      <button class="wlink" id="wmore">Tout lire</button>
+    </div>
+
+    <p class="wtip">Tout fonctionne sur téléphone — mais <b>l’arbre se déploie bien mieux sur un
+    ordinateur</b> : c’est là qu’on en voit l’étendue, et que les fiches se lisent sans zoomer.</p>
+
+    <p class="wthx">Merci à <b>Diane VINCENT</b>, <b>Philippe DUMAS de la ROQUE</b>,
+    <b>Ghislaine VELASQUE</b> et <b>Édith DUMAS de la ROQUE</b> — souvenirs, anecdotes,
+    photographies, papiers de famille et travaux de recherche. <b>Une branche manque, une photo
+    dort dans un tiroir&nbsp;? Dites-le.</b></p>
+  </div>
+</div>
 
 <header id="hdr">
   <div class="brand">
-    <h1>Ascendance d’Aurélien VINCENT</h1>
-    <div class="sub">État du dossier au 30 août 2026 — chaque position porte deux niveaux de preuve : l’individu, et le lien avec ses parents</div>
+    <h1>L’arbre de nos ancêtres</h1>
+    <div class="sub">Réalisation : <b>Aurélien VINCENT</b></div>
   </div>
   <div class="stats" id="stats" aria-live="polite"></div>
   <div class="spacer"></div>
@@ -593,9 +710,10 @@
     <button id="themebtn" title="Basculer entre fond sombre et fond clair">Clair</button>
     <button id="printbtn" title="Version imprimable (PDF via le navigateur)">Imprimer</button>
   </div>
+  <button class="notesbtn" id="thxbtn" title="Qui a fait ce travail, et grâce à qui">Remerciements</button>
   <button class="notesbtn" id="notesbtn" aria-expanded="false">Notes du dossier</button>
 </header>
-<div class="legend" id="lgd">
+<div class="legend lgdoff" id="lgd">
   <span class="fbar" style="border-left:none;padding-left:0">
     <select id="fbrsel" aria-label="Isoler une branche">
       <option value="">toutes les branches</option>
@@ -624,6 +742,8 @@
     <span class="chip"><span class="lv lvC">C</span> hypothèse</span>
     <span class="chip"><span class="lv lvU">?</span> inconnu</span>
   </span>
+  <button class="lgdtog" id="lgdtog" aria-expanded="false" aria-controls="lgd"
+          title="Montrer ou cacher la signification des pastilles A, B, C">légende ▾</button>
 </div>
 
 <div id="stage">
@@ -682,44 +802,86 @@
 
 <aside id="notes" aria-label="Notes du dossier">
   <button class="close" id="nclose" aria-label="Fermer les notes">✕</button>
-  <h2>Notes du dossier</h2>
-  <p class="small">Source : <em>Etat_du_dossier.md</em> (index refondu le 30 août 2026), les documents de branche du projet et leurs addenda du 29-30 août. La règle du dossier : aucune génération n’est accrochée sans un acte qui nomme les parents.</p>
+  <h2>À propos de cet arbre</h2>
+  <p class="small">État du dossier au 30 août 2026.</p>
 
-  <h3>Les fratries DUMAS — ajoutées le 30 août 2026</h3>
-  <p><b>Version publique.</b> Cette page est en ligne pour la famille. <b>Les dates concernant les personnes vivantes — naissances, mariages — n’y figurent pas</b>, non plus que les numéros des actes qui les portent. <b>Mais ces informations sont connues et documentées</b> : elles sont dans le dossier, et la mention <b>« date masquée »</b> le dit partout où c’est le cas. À ne pas confondre avec <b>« date inconnue »</b>, qui signale une lacune réelle — ainsi de Jacques VINCENT et d’Odile HUISSOUD (Sosa 4 et 5), que rien ne documente encore, ou des frères et sœurs de Guy. Là où rien n’est écrit, il n’y a rien à masquer. La version complète du dossier reste sur le disque. La page n’est pas indexée par les moteurs de recherche.</p>
-  <p>Les frères et sœurs de chaque ancêtre DUMAS, de Sibylle de Lalanne (XIVᵉ génération) à Gérard (1891), viennent du <b>mémoire familial « Descendance la Roque »</b> (version du 30 janvier 2026) : ils sont au <b>niveau C</b> tant qu’un acte ne les a pas confirmés, et chaque fiche le dit. Les demi-frères des autres lits sont signalés comme tels. Trois d’entre eux résolvent des questions du dossier : <b>Henri, major de Landrecies</b> (le parrain de 1736 est le demi-frère aîné du père, et la seigneurie de Pradets est une maison des Chartrons), <b>Paulin Antoine</b> (le « Pierre-Louis » que Saint-Allais plaçait à tort dans l’ascendance) et <b>Marie × Mel de Fontenay</b> (la « Mᵉˡ de Fontenay » de Ferrus est le beau-frère témoin de 1768). Le même jour, deux actes sont venus confirmer le mémoire sur ABM : le remariage d’Henry Dumas avec Rose Maignol (Saint-Michel, 29 août 1759) et la sépulture de Jeanne Françoise de Ladoire (Saint-Éloi, 1ᵉʳ mars 1744, 42 ans). La descendance contemporaine du mémoire n’a volontairement pas été reprise : ce sont des descendants, non des ancêtres, et des personnes vivantes.</p>
+  <h3>Ce que c’est</h3>
+  <p>Nos ancêtres, retrouvés dans les registres d’état civil et les registres paroissiaux, et
+  remontés aussi loin que les actes le permettent. Cinq branches — <b>DUMAS de la ROQUE</b>, <b>de BRINON</b>,
+  <b>MORACHE</b>, <b>DELAFONT</b> et <b>VINCENT · HUISSOUD</b>, jusqu’au XVIᵉ siècle pour la plus
+  ancienne. L’arbre est construit à partir d’<b>Aurélien VINCENT</b> (le n° 1, tout à gauche), mais
+  ce qu’il montre est commun à toute la famille : ceux dont nous descendons.</p>
+  <p>La règle du travail est simple : <b>aucune génération n’est rattachée à la suivante sans un
+  acte qui nomme les parents.</b> Chaque fiche porte donc une pastille qui dit ce qui la fonde —
+  <b>A</b> un acte a été lu, <b>B</b> plusieurs sources concordent, <b>C</b> ce n’est qu’une
+  hypothèse — et cite ses sources. Rien n’est affirmé sans dire d’où ça vient.</p>
 
-  <h3>L’implexe VERNIN d’AIGREPONT — démontré</h3>
-  <p>Marie Virginie (Sosa 105) et Zoé (Sosa 107) VERNIN d’AIGREPONT sont <b>sœurs</b> : leurs deux actes de décès et le mariage de 1849 nomment les mêmes parents. Donc <b>Sosa 210/211 = 214/215</b>, et Gustave et Émilienne (52 × 53) étaient <b>cousins germains</b>. Trois actes indépendants l’attestent ; la question ne se rouvre pas.</p>
+  <h3>Où êtes-vous là-dedans ?</h3>
+  <p>Nulle part — et ce n’est pas un oubli. <b>Un arbre d’ascendance ne remonte que les
+  ancêtres.</b> Il ne redescend pas vers les cousins, les neveux et les enfants : ce serait un
+  autre document. Vous n’y trouverez donc ni vous-même, ni vos parents, ni les vôtres.</p>
+  <p><b>Mais vous vous y rattachez, presque à coup sûr.</b> Les frères et sœurs de chaque ancêtre
+  y sont, en fiches plus petites, accrochées sous celui de la ligne directe : c’est par l’un d’eux
+  que passe votre propre lignée. Cherchez le nom d’un grand-père ou d’un arrière-grand-père — il y
+  est peut-être déjà.</p>
+  <p><b>Et si votre branche manque, dites-le.</b> Les recherches continuent, et elles avancent
+  surtout par ce que chacun garde chez soi : photographies, faire-part, livrets de famille,
+  vieux papiers, souvenirs. Tout est bon à prendre.</p>
 
-  <h3>La branche paternelle — vide, mais avec une clé</h3>
-  <p>VINCENT (Lyon) et HUISSOUD (Haute-Savoie) s’ouvrent par un seul document : <b>l’acte de naissance de Guy Sylvain VINCENT</b> (Lyon 4ᵉ). Le courrier à la mairie est prêt. Jacques et Odile, vivants, sont les seules sources à durée limitée du dossier.</p>
+  <h3>À quoi il sert</h3>
+  <p>À voir la famille d’un seul coup d’œil, et à pouvoir descendre dans le détail quand une
+  personne intrigue : son métier, sa ville, les actes qui la nomment, parfois sa photographie ou
+  une anecdote. C’est aussi un document de travail : il montre où l’on sait, et où l’on ne sait
+  pas encore.</p>
 
-  <h3>Hypothèses non raccordées (niveau C)</h3>
+  <h3>Comment s’en servir</h3>
   <ul>
-    <li><b>Piste HUISSOUD</b> — Cranves-Sales et Lucinges : Jean HUISSOUD (v. 1678-1758) × Louise BEDAZ → François (1706-1770) × Marie BERNARD → Pierre (1727-1785) × Louise BOCCARD MERMOUX. <b>Raccord non établi</b> avec Sosa 10/11.</li>
-    <li><b>DELAFONT présumés</b> — Sosa 480/481 : Léonard DELAFONT × Jeanne DISSOUDRAY (mémoire familial), et Sosa 960/961 : Martial DELAFONT × Anne MULEAUD, présumés au-dessus d’André DE LAFONT (dynastie notariale de Dun, 1601-1804). Aucun acte encore.</li>
-    <li><b>Le sommet DUMAS (Sosa 1536 et au-dessus)</b> — l’acte de 1675 nomme bien « Mᵉ Henry Dumas, avocat en la cour » comme père de Martial [A], mais <b>rien ne prouve encore que cet Henry soit l’Henri 1598-1690 du mémoire</b>, fils du courtier juré : un homme de 56 ans à la naissance de Martial, dont la femme teste quatre ans avant. Les générations XI à XIV restent en C jusqu’au contrat de 1675 (AD33 3 E 824, f° 445).</li>
-    <li><b>QUIN / O’QUIN — tranché le 29 août</b> : le mariage d’André QUIN × Anne LEE est lu à <b>Puy-Paulin, 17/07/1715</b> — « fils de Sʳ Valentin Quin et de Marie Joÿs », « fille de défunts Pierre Lée et Anastase Lée ». <b>Sosa 1544 à 1547 sont nommés, au niveau A</b> ; Patrice est le <b>frère</b> d’André, non le grand-père. Anne Lee est morte le 16/02/1761 (68 ans), rue des Faures — trois deuils sous son toit en treize mois. Restent en C : l’Irlande (Ballinrobe ?) et les parents de Valentin — <b>AD33 C. 3857</b>.</li>
-    <li><b>Ce qui reste en témoignage, tout près de Sosa 1</b> — les liens 2 → 4/5 (Guy ← Jacques × Odile), 6 → 12/13, 7 → 14/15, 12 → 24/25 et 15 → 30/31 ne tiennent que par la famille : quatre actes (naissance de Guy à Lyon 4ᵉ, mariage de Courbevoie, naissance de Philippe au château, naissance de Germaine à Héricy en 1904) fermeraient tout. Les fiches le disent par un second badge <b>« lien »</b>.</li>
+    <li><b>Se déplacer</b> : glisser pour bouger, molette ou pincement pour zoomer. Les boutons
+    <b>« Tout l’arbre »</b> et <b>« Sosa 1 »</b> ramènent à une vue d’ensemble ou au point de
+    départ.</li>
+    <li><b>Ouvrir une fiche</b> : un clic sur une personne, sur un frère ou une sœur, ou sur une
+    pastille de mariage. Un clic dans le vide referme.</li>
+    <li><b>La visite guidée</b> raconte l’histoire de la famille en quelques étapes, si l’on
+    préfère se laisser conduire.</li>
+    <li><b>La recherche</b>, en haut à droite, trouve quelqu’un par son nom.</li>
+    <li><b>Imprimer</b> produit une version papier, génération par génération.</li>
   </ul>
 
   <h3>Comment lire l’arbre</h3>
   <ul>
-    <li><b>C’est un arbre d’ascendance</b> : la ligne principale suit les ancêtres directs d’Aurélien — un enfant par couple, celui dont il descend. <b>Les frères et sœurs connus apparaissent en fiches réduites</b>, rattachées sous leur frère ou sœur de la ligne directe par une accolade en pointillé (ex. : Patrick et Myriam sous Diane — les trois enfants de Philippe et Mireille). Ils n’ont pas de numéro Sosa, réservé aux ancêtres directs.</li>
-    <li>La pastille <b>✦</b> signale un <b>ancêtre marquant</b> : sa fiche porte une anecdote. Le bouton <b>« ✦ Visite guidée »</b> ouvre une visite en <b>huit chapitres</b>, branche par branche, avec un récit par étape, le menu des chapitres, les flèches du clavier, et sur téléphone un tiroir qu’on fait glisser.</li>
-    <li>La pastille <b>Mariage</b> (aux deux anneaux) est posée sur le nœud où se rejoignent les traits des deux parents, à mi-hauteur entre leurs fiches : elle donne <b>la date et le lieu de leur mariage</b>.</li>
-    <li>Les fiches en pointillé gris marquées « entourage » sont des <b>personnages remarquables non ancêtres</b> — parrains, alliés, parents probables.</li>
-    <li>La <b>carte en bas à droite</b> situe les <b>régions d’origine</b> des branches, chacune dans sa couleur — et chaque fiche de détail replace l’ancêtre sur cette même carte. Les filtres de la barre isolent une branche, masquent les hypothèses (C) ou ne gardent que les ✦.</li>
-    <li>Sous le bandeau des générations, <b>un liseré des règnes et régimes</b> — Louis XIV, Régence, Révolution, Empire, Républiques — placé en regard des années de chaque génération (les colonnes ne sont pas à l’échelle du temps : c’est un repère, pas une frise), avec les guerres en marques rouges.</li>
-    <li>Le menu <b>« fil »</b> de la barre suit un prénom ou un métier à travers les générations — les porteurs s’allument, un fil doré relie chacun au porteur suivant de la ligne directe. La <b>mini-carte</b> en bas à gauche montre où l’on est dans l’arbre et s’y déplace au doigt.</li>
-    <li>Une soixantaine de fiches portent des <b>images et des actes</b> — les pages de registre où l’ancêtre est nommé, en version réduite (la transcription est dans la fiche, l’image pleine résolution dans le dossier) — portraits de famille et actes originaux — ; un clic les agrandit, un second clic les affiche en taille réelle. Le bouton <b>« Imprimer »</b> produit une version document, paginée par génération, à enregistrer en PDF.</li>
-    <li><b>Deux niveaux par fiche</b> (règle de l’audit du 30 août) : le premier badge dit si un acte nomme <b>la personne</b> ; quand le <b>lien avec ses parents</b> tient moins bien — témoignage (T), convergence (B) —, un second badge « lien » l’indique. La chaîne n’est continue que là où les deux sont en A.</li>
-    <li>Aurélien (Sosa 1) est à gauche ; chaque colonne est une génération, avec sa fourchette d’années et son repère d’époque dans le bandeau du haut. Le père d’une personne porte le double de son numéro Sosa, la mère le double plus un.</li>
-    <li>Le haut de la branche DUMAS (générations XI à XIV) repose sur le seul mémoire familial de janvier 2026 : <b>niveau C</b>, mais quatre noms d’affilée y ont déjà été vérifiés par actes.</li>
-    <li>Les fiches en pointillé sont des positions <b>inconnues ou non nommées</b> ; la fiche « = Sosa 210/211 » matérialise l’implexe.</li>
+    <li>Aurélien est <b>à gauche</b> ; on remonte le temps vers la droite, une colonne par
+    génération.</li>
+    <li>La ligne principale ne suit que les <b>ancêtres directs</b>. Les frères et sœurs
+    apparaissent en <b>fiches plus petites</b>, rattachées en dessous.</li>
+    <li>Les <b>couleurs</b> sont les branches ; les <b>fiches en pointillé</b> sont des places
+    encore vides, que l’on espère remplir.</li>
+    <li>Le <b>numéro Sosa</b> est la numérotation d’usage en généalogie : Aurélien est le 1, son
+    père le 2, sa mère le 3, et ainsi de suite — le père d’une personne porte le double de son
+    numéro, la mère le double plus un.</li>
+    <li>Une <b>✦</b> signale quelqu’un dont on a une histoire à raconter.</li>
   </ul>
-  <p class="small">Ce schéma est une vue de synthèse : les transcriptions littérales et les cotes complètes restent dans les fiches de source PDF et les documents de branche.</p>
+
+  <h3>Version publique</h3>
+  <p>Cette page est en ligne pour la famille. <b>Aucune date n’y figure pour les personnes vivantes</b> — ni naissance, ni mariage. Ces informations sont connues et conservées dans le dossier : la mention <b>« date masquée »</b> le dit partout où c’est le cas, à ne pas confondre avec <b>« date inconnue »</b>, qui signale une lacune réelle. La page n’est pas indexée par les moteurs de recherche.</p>
+
+  <div class="thx" id="thx">
+    <h3>Remerciements</h3>
+    <p><b>Recherches, dépouillements d’archives, transcriptions et réalisation : Aurélien VINCENT.</b></p>
+    <p>Cet arbre doit beaucoup à quatre personnes — souvenirs, anecdotes, photographies, papiers de
+    famille et travaux de recherche :</p>
+    <ul>
+      <li><span class="who">Diane VINCENT</span></li>
+      <li><span class="who">Philippe DUMAS de la ROQUE</span></li>
+      <li><span class="who">Ghislaine VELASQUE</span></li>
+      <li><span class="who">Édith DUMAS de la ROQUE</span> — son mémoire <i>« Descendance la Roque »</i>
+      (janvier 2026) porte à lui seul le haut de la branche DUMAS, des générations XI à XIV, et a
+      résolu plusieurs questions que les registres n’avaient pas tranchées.</li>
+    </ul>
+    <p class="small">Merci à eux : sans ce qu’ils ont gardé et transmis, une bonne part de ce qui
+    suit serait restée introuvable.</p>
+  </div>
+  <p class="small">Cette page est une vue de synthèse : les transcriptions complètes des actes et
+  leurs références d’archives sont conservées à part, dans le dossier.</p>
 </aside>
 
 <script>
@@ -1743,6 +1905,10 @@ for(const p of P){
     mp.dataset.br=p.br; mp.dataset.lv=p.lv;
     mp.title='Mariage des parents (Sosa '+(2*p.s)+' × '+(2*p.s+1)+')';
     mp.innerHTML='<b><svg class="rgs" viewBox="0 0 15 9" aria-hidden="true"><circle cx="5" cy="4.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="4.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Mariage</b><span class="mtx">'+M[p.s]+'</span>';
+    mp.setAttribute('role','button'); mp.tabIndex=0;
+    mp.setAttribute('aria-label','Mariage des parents de '+p.n);
+    mp.addEventListener('click',()=>openMar(p));
+    mp.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); openMar(p); } });
     world.appendChild(mp); marEls.push([mp,p]); marByS.set(p.s,mp);
   }
 }
@@ -1883,10 +2049,29 @@ if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>layoutA
   document.getElementById('staronly').addEventListener('change',e=>st.classList.toggle('starOnly',e.target.checked));
 }
 
+/* page d'accueil : visible d'abord, refermée d'un bouton, d'Échap ou d'un clic à côté */
+(function(){
+  const w=document.getElementById('welcome'); if(!w) return;
+  const close=()=>{ w.classList.add('gone'); };
+  document.getElementById('wgo').onclick=close;
+  document.getElementById('wtour').onclick=()=>{ close(); document.getElementById('tourbtn').click(); };
+  document.getElementById('wmore').onclick=()=>{ close(); document.getElementById('notesbtn').click(); };
+  w.addEventListener('click',e=>{ if(e.target===w) close(); });
+  document.addEventListener('keydown',e=>{
+    if(!w.classList.contains('gone') && e.key==='Escape'){ e.stopPropagation(); close(); }
+  }, true);
+  requestAnimationFrame(()=>document.getElementById('wgo').focus({preventScroll:true}));
+})();
+
 /* stats */
 (function(){
   const c={A:0,B:0,C:0,U:0};
   for(const p of P){ if(!p.ref) c[p.lv]++; }
+  document.getElementById('wstats').innerHTML =
+    `<div><b>${P.filter(p=>!p.ref&&!p.gh).length-1}</b><span>ancêtres nommés</span></div>
+     <div><b>${maxGen}</b><span>générations</span></div>
+     <div><b>${c.A}</b><span>tenus par un acte</span></div>
+     <div><b>${P.reduce((n,p)=>n+(S[p.s]?S[p.s].length:0),0)}</b><span>frères et sœurs</span></div>`;
   document.getElementById('stats').innerHTML =
     `<span><b>${P.filter(p=>!p.ref&&!p.gh).length-1}</b> ancêtres nommés</span>
      <span><b>${c.A}</b> en A</span><span><b>${c.B}</b> en B</span>
@@ -2250,6 +2435,45 @@ function openSib(host, sd){
   });
   panel.classList.add('open');
 }
+/* Fiche d'un mariage — on clique la pastille entre deux parents.
+   Le mariage est le document qui NOMME les parents : c'est lui qui ferme une génération,
+   d'où le rappel du niveau du lien de l'enfant et le regroupement des preuves qui en parlent. */
+function openMar(ch){
+  if(selCard){selCard.classList.remove('sel'); selCard=null;}
+  clearLit();
+  const f=byS.get(2*ch.s), m=byS.get(2*ch.s+1), who=[f,m].filter(Boolean);
+  const keep = s => /^\s*(mariage|publication|contrat|remariage)/i.test(s) && !/mariage de (sa|son|leur)/i.test(s);
+  const acts=[]; who.forEach(q=>((X[q.s]||{}).a||[]).forEach(s=>{ if(keep(s) && !acts.includes(s)) acts.push(s); }));
+  const imgs=[]; who.forEach(q=>imgsOf(q.s).forEach(im=>{
+    if(/mariage|publication|remariage|contrat/i.test(im[1]) && !imgs.some(o=>o[0]===im[0])) imgs.push(im);
+  }));
+  const gn=ROM[gen(2*ch.s)-1]||'';
+  const br=(f||ch).br;
+  pbody.innerHTML=`
+    <div class="eyebrow">Mariage · génération ${gn} · parents de Sosa ${ch.s}</div>
+    <h2>${f?f.n:'Père inconnu'} <span style="color:var(--accent);font-weight:400">×</span> ${m?m.n:'Mère inconnue'}</h2>
+    <div class="meta">
+      <span class="bmark"><i style="background:var(${BR[br]})"></i>${BRN[br]}</span>
+      ${ch.lk?`<span class="lv lk lv${ch.lk}">lien ${ch.lk}</span><span style="font-size:12.5px;color:var(--ink2)">${LKN[ch.lk]}</span>`:''}
+    </div>
+    <p class="pro"><svg viewBox="0 0 15 9" style="width:15px;height:9px;color:var(--accent)" aria-hidden="true"><circle cx="5" cy="4.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="4.5" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> ${M[ch.s]}</p>
+    <div class="body"><p>C’est l’union d’où descend <b>${ch.n}</b> (Sosa ${ch.s}). <b>Un acte de mariage nomme les quatre parents des époux, avec leurs métiers et souvent leurs décès</b> : c’est le document le plus rentable de tout l’état civil, et c’est par lui qu’une génération se ferme.</p>
+    ${ch.lk?`<p>Le lien de ${ch.n} avec ce couple est au niveau <b>${ch.lk}</b> — ${LKN[ch.lk]}.</p>`:''}</div>
+    ${imgs.length?`<div class="seclbl">L’acte</div><div class="pimgs">${imgs.map(im=>`<figure><img src="${im[0]}" alt="${im[1].replace(/"/g,'&quot;')}" loading="lazy"><figcaption>${im[1]}</figcaption></figure>`).join('')}</div>`:''}
+    ${acts.length?`<div class="seclbl">Ce qui l’atteste</div><ul class="acts">${acts.map(s=>`<li>${s}</li>`).join('')}</ul>`:'<div class="seclbl">Ce qui l’atteste</div><ul class="acts"><li>Aucune pièce de mariage n’est encore versée au dossier pour ce couple.</li></ul>'}
+    <div class="nav"><div class="lbl">Les époux</div>
+      ${f?`<button data-s="${f.s}">↑ Sosa ${f.s} — ${f.n}</button>`:''}
+      ${m?`<button data-s="${m.s}">↑ Sosa ${m.s} — ${m.n}</button>`:''}
+      <div class="lbl">Enfant dans la ligne</div>
+      <button data-s="${ch.s}">↓ Sosa ${ch.s} — ${ch.n}</button></div>`;
+  pbody.querySelectorAll('.nav button').forEach(b=>{
+    b.onclick=()=>{const t=byS.get(+b.dataset.s); if(t){ goTo(t); openPanel(t); }};
+  });
+  pbody.querySelectorAll('.pimgs img').forEach(imEl=>{
+    imEl.onclick=()=>{ lbimg.src=imEl.src; lbcap.textContent=imEl.alt; lb.classList.add('open'); };
+  });
+  panel.classList.add('open');
+}
 function openEnt(host, ed){
   if(selCard){selCard.classList.remove('sel'); selCard=null;}
   clearLit();
@@ -2291,6 +2515,21 @@ document.getElementById('pclose').onclick=()=>{
 const notes=document.getElementById('notes'), nbtn=document.getElementById('notesbtn');
 nbtn.onclick=()=>{const o=notes.classList.toggle('open'); nbtn.setAttribute('aria-expanded',o); if(o) document.getElementById('tclose').click();};
 document.getElementById('nclose').onclick=()=>{notes.classList.remove('open'); nbtn.setAttribute('aria-expanded','false');};
+document.getElementById('thxbtn').onclick=()=>{
+  notes.classList.add('open'); nbtn.setAttribute('aria-expanded','true');
+  document.getElementById('tclose').click();
+  const t=document.getElementById('thx');
+  requestAnimationFrame(()=>{ notes.scrollTop=0; t.scrollIntoView({block:'nearest'}); });
+};
+
+/* légende des niveaux de preuve : repliée par défaut, pour rendre une ligne à l'arbre */
+const lgd=document.getElementById('lgd'), lgdtog=document.getElementById('lgdtog');
+if(lgdtog) lgdtog.onclick=()=>{
+  const open=!lgd.classList.toggle('lgdoff');
+  lgdtog.setAttribute('aria-expanded',open);
+  lgdtog.textContent = open ? 'légende ▴' : 'légende ▾';
+  if(typeof layoutAll==='function'){ try{ layoutAll(); render(); }catch(e){} }
+};
 
 /* ================= search ================= */
 const q=document.getElementById('q'), hits=document.getElementById('hits');
@@ -2404,10 +2643,13 @@ document.getElementById('printbtn').onclick=()=>{
   const pv=document.getElementById('printview');
   if(!pv.innerHTML){
     const strip=h=>h; /* le HTML des notices est sûr (généré ici même) */
-    let out=`<h1>Ascendance d’Aurélien VINCENT</h1>
+    let out=`<h1>L’arbre de nos ancêtres</h1>
       <div class="psub">État du dossier au 30 août 2026 · ${P.filter(p=>!p.ref&&!p.gh).length-1} ancêtres nommés
       sur ${maxGen} générations · niveaux de preuve : A acte consulté · B convergence · C hypothèse.
-      Document généré depuis l’arbre interactif ; les fiches de source PDF font foi pour les transcriptions.</div>`;
+      Document généré depuis l’arbre interactif ; les fiches de source PDF font foi pour les transcriptions.<br>
+      <b>Réalisation : Aurélien VINCENT</b> — remerciements à Diane VINCENT, Philippe DUMAS de la ROQUE,
+      Ghislaine VELASQUE et Édith DUMAS de la ROQUE (souvenirs, photographies, papiers de famille et
+      mémoire « Descendance la Roque », janvier 2026).</div>`;
     for(let g=1; g<=maxGen; g++){
       const gens=P.filter(p=>gen(p.s)===g && !p.ref).sort((a,b)=>a.y-b.y);
       if(!gens.length) continue;

@@ -1,7 +1,7 @@
 # Ascendance Aurélien VINCENT — version publique
 
 **En ligne : https://ziakeur.github.io/arbre-genealogique-interactif/**
-Dépôt : https://github.com/Ziakeur/genealogie (public, un seul fichier).
+Dépôt : https://github.com/Ziakeur/arbre-genealogique-interactif (public, un seul fichier).
 
 Page unique et autonome (`index.html`, 12 Mo, images embarquées), servie par GitHub Pages.
 
